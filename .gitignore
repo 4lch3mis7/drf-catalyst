@@ -1,0 +1,34 @@
+# Python Bytecodes
+*.pyc
+
+# Environment Variables
+.env
+
+# Virtual Environment
+.venv/
+
+# Local Database
+db.sqlite3
+test_db.sqlite3
+
+# Redis Database
+dump.rdb
+
+# Celery
+celerybeat-schedule.*
+
+# Media Files
+media/
+
+# Static Files
+static/
+
+# Local Files
+.local/
+local/
+
+# Data
+var/
+
+# Backup Files
+*.bak
