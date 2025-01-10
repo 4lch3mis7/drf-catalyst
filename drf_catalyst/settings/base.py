@@ -1,6 +1,6 @@
-import environ
 from pathlib import Path
 
+import environ
 
 env = environ.Env(
     # set casting, default value
@@ -103,3 +103,44 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Celery settings
+CELERY_BROKER_URL = env('CELERY_BROKER_URL')
+CELERY_RESULT_BACKEND = env('CELERY_RESULT_BACKEND')
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_HIJACK_ROOT_LOGGER = False
+
+# Logging
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+        "django_file": {
+            "class": "logging.FileHandler",
+            "filename": env('DJANGO_LOG_FILE'),
+        },
+        "celery_file": {
+            "class": "logging.FileHandler",
+            "filename": env('CELERY_LOG_FILE'),
+        },
+    },
+    "root": {
+        "handlers": ["console", "django_file"],
+        "level": "WARNING",
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console", "django_file"],
+            "level": env("DJANGO_LOG_LEVEL", default="INFO"),
+            "propagate": False,
+        },
+        "celery": {
+            "handlers": ["console", "celery_file"],
+            "level": env("CELERY_LOG_LEVEL", default="INFO"),
+            "propagate": False,
+        },
+    },
+}
