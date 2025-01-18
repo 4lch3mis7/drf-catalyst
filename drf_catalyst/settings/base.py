@@ -25,8 +25,13 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Local apps
+    "authusers",
     # Third-party apps
+    "rest_framework_simplejwt",
     "drf_yasg",
+    "phonenumber_field",
+    "django_filters",
 ]
 
 MIDDLEWARE = [
@@ -107,7 +112,7 @@ MEDIA_URL = "/media/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# AUTH_USER_MODEL = "authusers.User"
+AUTH_USER_MODEL = "authusers.User"
 
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAdminUser",),

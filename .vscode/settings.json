@@ -7,5 +7,6 @@
         "source.fixAll": "explicit",
         "source.organizeImports.ruff": "explicit",
     },
+    "python.analysis.autoImportCompletions": true,
     "python.analysis.autoIndent": true,
 }
