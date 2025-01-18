@@ -18,12 +18,15 @@ SECRET_KEY = env("SECRET_KEY")
 
 # Application definition
 INSTALLED_APPS = [
+    # Default apps
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Third-party apps
+    "drf_yasg",
 ]
 
 MIDDLEWARE = [

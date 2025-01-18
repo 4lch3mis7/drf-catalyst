@@ -52,6 +52,7 @@ source = { virtual = "." }
 dependencies = [
     { name = "django-environ" },
     { name = "djangorestframework" },
+    { name = "drf-yasg" },
 ]
 
 [package.dev-dependencies]
@@ -63,10 +64,30 @@ dev = [
 requires-dist = [
     { name = "django-environ", specifier = ">=0.11.2" },
     { name = "djangorestframework", specifier = ">=3.15.2" },
+    { name = "drf-yasg", specifier = ">=1.21.8" },
 ]
 
 [package.metadata.requires-dev]
 dev = [{ name = "ruff", specifier = ">=0.9.0" }]
+
+[[package]]
+name = "drf-yasg"
+version = "1.21.8"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "django" },
+    { name = "djangorestframework" },
+    { name = "inflection" },
+    { name = "packaging" },
+    { name = "pytz" },
+    { name = "pyyaml" },
+    { name = "uritemplate" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/db/c3/ce0f7ba1898ca78c0067cadbc25effe46fcea24e90938444ff8a39f40ce4/drf-yasg-1.21.8.tar.gz", hash = "sha256:cbb7f81c3d140f2207392b4bc5dde65384eeb58e1b7eea1a6d641dec2f7352a9", size = 4512662 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/8e/45/141c52a3213329d9f68cadc7daf4dc03e259f2301c87c421a68af174d7a4/drf_yasg-1.21.8-py3-none-any.whl", hash = "sha256:a410b235e7cc2c0f6b9d4f671e8efe6f2d27cba398fbd16064e16ef814998444", size = 4289546 },
+]
+
 
 [[package]]
 name = "ruff"
