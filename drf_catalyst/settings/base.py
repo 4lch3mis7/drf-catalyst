@@ -141,11 +141,11 @@ LOGGING = {
         },
         "django_file": {
             "class": "logging.FileHandler",
-            "filename": env("DJANGO_LOG_FILE"),
+            "filename": "/var/log/drf_catalyst/django.log",
         },
         "celery_file": {
             "class": "logging.FileHandler",
-            "filename": env("CELERY_LOG_FILE"),
+            "filename": "/var/log/drf_catalyst/celery.log",
         },
     },
     "root": {

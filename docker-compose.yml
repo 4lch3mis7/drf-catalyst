@@ -1,0 +1,49 @@
+version: "3"
+
+networks:
+  drf-catalyst:
+    name: drf-catalyst
+    driver: bridge
+
+volumes:
+  drf-catalyst:
+
+
+services:
+  # Postgres DB
+  db:
+    image: postgres
+    container_name: drf-catalyst-db
+    restart: always
+    env_file: .env
+    volumes:
+      - ./var/lib/postgresql/data:/var/lib/postgresql/data
+    networks:
+      - drf-catalyst
+
+  # Redis
+  redis:
+    image: redis:6
+    container_name: drf-catalyst-redis
+    restart: always
+    networks:
+      - drf-catalyst
+
+  # Django Backend
+  backend: 
+    build: .
+    container_name: drf-catalyst-backend
+    depends_on:
+      - db
+      - redis
+    restart: always
+    env_file: .env
+    command: uv run python manage.py runserver 0.0.0.0:8000
+    networks:
+      - drf-catalyst
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app  # Mount the project directory
+      - /app/.venv/  # Exclude virtual environment
+      - ./var/log/drf_catalyst/:/var/log/drf_catalyst/
