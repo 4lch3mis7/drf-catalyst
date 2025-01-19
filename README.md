@@ -78,37 +78,8 @@ git clone https://github.com/4lch3mis7/drf-catalyst
 cd drf-catalyst
 ```
 
-#### 2. Create and activate a virtual environment:
+### Start your project
 ```bash
-python -m venv .venv
-source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`
+export PROJECT_NAME=myproject
+make startproject
 ```
-
-#### 3. Install the dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-#### 4. Set up environment variables:
-Copy the `.env.dist` file to `.env` and update the values as needed:
-```bash
-cp .env.dist .env
-```
-
-#### 5. Apply migrations:
-```bash
-python manage.py migrate
-```
-
-#### 6. Run the development server:
-```bash
-python manage.py runserver
-```
-
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License.
