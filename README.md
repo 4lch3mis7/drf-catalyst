@@ -16,70 +16,54 @@ DRF Catalyst is an opinionated boilerplate designed to jumpstart your REST API d
 ## Project Structure
 
 ```
-drf_catalyst/
-├── db.sqlite3
-├── drf_catalyst
-│   ├── __init__.py
-│   ├── asgi.py
-│   ├── exception_handler.py
-│   ├── models.py
-│   ├── permissions.py
-│   ├── settings
-│   │   ├── __init__.py
-│   │   ├── base.py
-│   │   ├── development.py
-│   │   └── production.py
-│   ├── settings.py
-│   ├── swagger_router.py
-│   ├── urls.py
-│   └── wsgi.py
+myproject/
 ├── authusers
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── auth
-│   │   ├── __init__.py
-│   │   ├── urls.py
-│   ├── migrations
-│   │   ├── __init__.py
-│   ├── tests.py
-│   ├── urls
-│   │   ├── __init__.py
-│   │   ├── users.py
-│   ├── users
-│   │   ├── __init__.py
-│   │   ├── models.py
-│   │   ├── serializers.py
-│   │   ├── urls.py
-│   │   ├── views.py
-├── logs
-│   ├── celery.log
-│   ├── django.log
-├── static
-│   ├── admin
-├── .env
-├── .env.dist
-├── .gitignore
-├── .python-version
-├── .vscode
-│   ├── settings.json
-├── Makefile
+│   ├── admin.py
+│   ├── apps.py
+│   ├── auth
+│   │   └── urls.py
+│   ├── models.py
+│   ├── tests.py
+│   └── users
+│       ├── serializers.py
+│       ├── urls.py
+│       └── views.py
+├── myproject
+│   ├── asgi.py
+│   ├── exception_handler.py
+│   ├── models.py
+│   ├── permissions.py
+│   ├── response_handler.py
+│   ├── settings
+│   │   ├── base.py
+│   │   ├── development.py
+│   │   └── production.py
+│   ├── settings.py
+│   ├── swagger_router.py
+│   ├── urls.py
+│   └── wsgi.py
+├── docker-compose.yml
+├── Dockerfile
+├── entrypoint.sh
 ├── manage.py
 ├── pyproject.toml
 ├── README.md
-├── uv.lock
+└── uv.lock
 ```
 
 ## Project Setup
 
-#### 1. Clone the repository and navigate to the project:
+#### Create a new project directory:
 ```bash
-git clone https://github.com/4lch3mis7/drf-catalyst
-cd drf-catalyst
+mkdir myproject && cd myproject
 ```
 
-### Start your project
+#### 1. Clone the repository and navigate to the project:
 ```bash
-export PROJECT_NAME=myproject
-make startproject
+git clone https://github.com/4lch3mis7/drf-catalyst .
+```
+
+### 2. Start your project
+```bash
+make --file=drf-catalyst/Makefile PROJECT_NAME=myproject
 ```
