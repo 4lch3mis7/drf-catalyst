@@ -65,5 +65,5 @@ git clone https://github.com/4lch3mis7/drf-catalyst .
 
 ### 2. Start your project
 ```bash
-make --file=drf-catalyst/Makefile PROJECT_NAME=myproject
+make --file=drf-catalyst/Makefile
 ```
