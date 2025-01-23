@@ -1,7 +1,7 @@
 .PHONY: all refactor env clean
 
 SHELL = /bin/bash
-PROJECT_NAME = $(shell basename $(shell pwd) | sed 's/-/_/g')
+PROJECT_NAME = $(shell basename $(shell pwd) | tr '-' '_' | tr '[:upper:]' '[:lower:]')
 
 all: refactor env clean
 
