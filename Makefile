@@ -23,4 +23,6 @@ env:
 clean:
 	rmdir drf-catalyst
 	rm Makefile
-	rm -rf .git/
+	rm README.md
+	rm -rf .github/
+	rm -rf .git/	
