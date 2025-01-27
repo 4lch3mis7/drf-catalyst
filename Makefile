@@ -21,6 +21,7 @@ env:
 	cp .env.dist .env
 
 clean:
+	# Clean up
 	rmdir drf-catalyst
 	rm Makefile
 	rm README.md
