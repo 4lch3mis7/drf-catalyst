@@ -26,4 +26,9 @@ clean:
 	rm Makefile
 	rm README.md
 	rm -rf .github/
-	rm -rf .git/	
+	rm -rf .git/
+
+	# Initialize git
+	git init
+	git add .
+	git commit -m "Initial commit"
