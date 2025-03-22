@@ -50,7 +50,7 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser, AbstractBaseModel, PermissionsMixin):
     username = models.CharField(max_length=255, unique=True)
-    email = models.EmailField(unique=True, null=True, blank=True)
+    email = models.EmailField(unique=True, blank=True)
     role = models.CharField(
         max_length=2,
         choices=UserRole.choices,
@@ -65,7 +65,7 @@ class User(AbstractBaseUser, AbstractBaseModel, PermissionsMixin):
         help_text="staffs can access django admin panel with assigned permissions.",
     )
     is_superuser = models.BooleanField(default=False)  # superuser privilege
-    deletion_initiated_at = models.DateTimeField(null=True, blank=True)
+    deletion_initiated_at = models.DateTimeField(blank=True)
 
     USERNAME_FIELD = "username"
 
@@ -83,16 +83,16 @@ class Profile(models.Model):
         db_index=True,
         editable=False,
     )
-    first_name = models.CharField(max_length=200, null=True, blank=True)
-    middle_name = models.CharField(max_length=200, null=True, blank=True)
-    last_name = models.CharField(max_length=200, null=True, blank=True)
+    first_name = models.CharField(max_length=200, blank=True)
+    middle_name = models.CharField(max_length=200, blank=True)
+    last_name = models.CharField(max_length=200, blank=True)
     profile_picture = models.ImageField(
         upload_to="profile-picture/",
         null=True,
         blank=True,
     )
-    address = models.CharField(max_length=200, null=True, blank=True)
-    phone_number = PhoneNumberField(region="NP", unique=True)
+    address = models.CharField(max_length=200, blank=True)
+    phone_number = PhoneNumberField(unique=True)
 
     def __str__(self) -> str:
         return f"{self.full_name}"
