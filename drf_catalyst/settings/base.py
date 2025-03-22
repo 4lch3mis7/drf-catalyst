@@ -97,6 +97,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+PHONENUMBER_DEFAULT_REGION = "NP"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -117,7 +118,6 @@ AUTH_USER_MODEL = "authusers.User"
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAdminUser",),
     "DEFAULT_AUTHENTICATION_CLASSES": (
-        # 'rest_framework.authentication.SessionAuthentication',
         # 'rest_framework.authentication.BasicAuthentication',
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
@@ -155,12 +155,12 @@ LOGGING = {
     "loggers": {
         "django": {
             "handlers": ["console", "django_file"],
-            "level": env("DJANGO_LOG_LEVEL", default="INFO"),
+            "level": env("DJANGO_LOG_LEVEL", default="INFO"),  # type: ignore
             "propagate": False,
         },
         "celery": {
             "handlers": ["console", "celery_file"],
-            "level": env("CELERY_LOG_LEVEL", default="INFO"),
+            "level": env("CELERY_LOG_LEVEL", default="INFO"),  # type: ignore
             "propagate": False,
         },
     },
